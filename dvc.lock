@@ -32,12 +32,12 @@ stages:
           targ_col: Exited
           random_state: 42
         data_split:
-          test_size: 0.25
+          test_size: 0.2
           processed_data_dir: data/processed
     outs:
     - path: data/processed
       hash: md5
-      md5: c9f8d0f86f89503597e1e9db96a8193d.dir
+      md5: 5eb53e64f37fee38949d2fd115254a43.dir
       size: 722283
       nfiles: 4
   train:
@@ -45,7 +45,7 @@ stages:
     deps:
     - path: data/processed
       hash: md5
-      md5: c9f8d0f86f89503597e1e9db96a8193d.dir
+      md5: 5eb53e64f37fee38949d2fd115254a43.dir
       size: 722283
       nfiles: 4
     - path: src/stages/train.py
@@ -81,20 +81,20 @@ stages:
     outs:
     - path: models/clf-model.joblib
       hash: md5
-      md5: d3d1503e892a6a50cd432c672be10823
-      size: 1149004
+      md5: 98bcc2fe98af00d1a8fdb59740b6e703
+      size: 1208308
   eval:
     cmd: python src/stages/eval.py --config=params.yaml
     deps:
     - path: data/processed
       hash: md5
-      md5: c9f8d0f86f89503597e1e9db96a8193d.dir
+      md5: 5eb53e64f37fee38949d2fd115254a43.dir
       size: 722283
       nfiles: 4
     - path: models/clf-model.joblib
       hash: md5
-      md5: d3d1503e892a6a50cd432c672be10823
-      size: 1149004
+      md5: 98bcc2fe98af00d1a8fdb59740b6e703
+      size: 1208308
     - path: src/stages/eval.py
       hash: md5
       md5: e402ec2f10cedbc6c02331cf13cd1147
@@ -119,7 +119,7 @@ stages:
           targ_col: Exited
           random_state: 42
         data_split:
-          test_size: 0.25
+          test_size: 0.2
           processed_data_dir: data/processed
         train:
           model_type: xgboost
@@ -131,13 +131,13 @@ stages:
     outs:
     - path: metrics.json
       hash: md5
-      md5: 44ccfc38e85f2498d6b9145ad95f88ca
+      md5: cae64ebf4e91bc8f3256b0a80f3ec59c
       size: 67
     - path: reports/feat_imp.csv
       hash: md5
-      md5: cfaffb2ac5a05fb732973f972d7cf605
+      md5: 7dac12ba07b85b25aa383bd70904caa3
       size: 187
     - path: reports/figures/cm.png
       hash: md5
-      md5: dbc59bb8fd1985ff7e29681c4024d64e
-      size: 10493
+      md5: e9534cb463cf86d25de9f4a8e7ac1ac0
+      size: 10503
