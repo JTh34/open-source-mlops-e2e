@@ -81,7 +81,7 @@ stages:
     outs:
     - path: models/clf-model.joblib
       hash: md5
-      md5: 03393af585c07f182d7e07ecd917cbf6
+      md5: 1ae2deeb5a307542412ed0f820cfd28b
       size: 751835
   eval:
     cmd: python src/stages/eval.py --config=params.yaml
@@ -93,7 +93,7 @@ stages:
       nfiles: 4
     - path: models/clf-model.joblib
       hash: md5
-      md5: 03393af585c07f182d7e07ecd917cbf6
+      md5: 1ae2deeb5a307542412ed0f820cfd28b
       size: 751835
     - path: src/stages/eval.py
       hash: md5
