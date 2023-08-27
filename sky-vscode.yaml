@@ -1,0 +1,17 @@
+name: sky-vscode
+resources:
+  cloud: aws
+  cpus: 4
+workdir: .
+file_mounts: 
+  ~/.ssh/id_rsa: ~/.ssh/id_rsa
+  ~/.ssh/id_rsa.pub: ~/.ssh/id_rsa.pub
+  ~/.gitconfig: ~/.gitconfig
+setup: |
+  pip install --upgrade pip
+  pip install -r requirements.txt
+  dvc pull
+  sudo snap install --classic code
+run: |
+  code tunnel --accept-server-license-terms
+  
