@@ -10,7 +10,6 @@ file_mounts:
 setup: |
   pip install --upgrade pip
   pip install -r requirements.txt
-  dvc pull
   sudo snap install --classic code
 run: |
   code tunnel --accept-server-license-terms
