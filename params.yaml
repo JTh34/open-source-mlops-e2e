@@ -27,3 +27,6 @@ train:
   params:
     n_estimators: 70
     max_depth: 25
+    
+drift_detect:
+  min_batch_size: 50
